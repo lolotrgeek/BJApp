@@ -12,7 +12,8 @@ function SystemInformationService() {
     characteristics: [
       new LoadAverageCharacteristic(),
       new UptimeCharacteristic(),
-      new MemoryCharacteristic()
+      new MemoryCharacteristic(),
+	  new NetworkCharacteristic
     ]
   });
 };
