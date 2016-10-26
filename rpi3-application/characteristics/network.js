@@ -5,7 +5,7 @@ var util = require('util');
 var BlenoCharacteristic = bleno.Characteristic;
 
 var NetworkCharacteristic = function() {
- MemoryCharacteristic.super_.call(this, {
+ NetworkCharacteristic.super_.call(this, {
     uuid: 'ff51b30e-d7e2-4d93-8842-a7c4a57dfb07',
     properties: ['read'],
   });
@@ -13,12 +13,12 @@ var NetworkCharacteristic = function() {
  this._value = new Buffer(0);
 };
 
-MemoryCharacteristic.prototype.onReadRequest = function(offset, callback) {
+NetworkCharacteristic.prototype.onReadRequest = function(offset, callback) {
 
   if(!offset) {
 
     this._value = new Buffer(JSON.stringify({
-      'freeMemory' : os.freemem(),
+      'freeNetwork' : os.freemem(),
       'totalMemory' : os.totalmem()
     }));
   }
